@@ -5,13 +5,20 @@ import java.util.Random;
 
 public class Person {
 
-	private final String name;
-	private final Integer age;
+	private  String name;
+	private  Integer age;
 
 	public Person() {
-        this.name = null;
-        this.age = null;
+        this.name=null;
+        this.age=null;
+         
+       
 	}
+        
+        public void set(String test,Integer age){
+              this.name = test;
+              this.age = age;
+        }
 
 	public String getName() {
         int leftLimit = 97; // letter 'a'

@@ -13,10 +13,43 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(path = "/", 
+        consumes = MediaType.APPLICATION_JSON_VALUE, 
+        produces = MediaType.APPLICATION_JSON_VALUE, 
+        method = {RequestMethod.GET, RequestMethod.POST})
 public class SchemaController {
+    
+    @RequestMapping(path = "/content", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseTransfer postResponseController(@RequestBody LoginForm loginForm) {
+        return new ResponseTransfer(loginForm.toString());
+     }
+    
+    /*@PostMapping("/response")
+    @ResponseBody
+    public ResponseTransfer postResponseController(@RequestBody LoginForm loginForm) {
+        return new ResponseTransfer("Thanks For Posting!!!");
+     }*/
 
+  
+    /*
+    /*@RequestMapping(path = "/foo/{id}", produces = MediaType.APPLICATION_XML_VALUE, method = RequestMethod.GET)
+    public ThisIsAFooXML getAFooXml(@PathVariable String id) {
+        ThisIsAFooXML foo = fooService.getAFoo(id);
+        return foo;
+    }
+    
+    @RequestMapping(path = "/foo/{id}", consumes = MediaType.APPLICATION_XML_VALUE, method = RequestMethod.GET)
+    public ThisIsAFooXML getAFooXml(@PathVariable String id) {
+        ThisIsAFooXML foo = fooService.getAFoo(id);
+        return foo;
+    }*/
+    
+    /*
     @GetMapping("/schema/{type}")
     public Person schema_endpoint(
             @PathVariable(value = "type") String type
@@ -35,5 +68,5 @@ public class SchemaController {
             instances[i] = new Person();
         }
         return instances;
-    }
+    }*/
 }
