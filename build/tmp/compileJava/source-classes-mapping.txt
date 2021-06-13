@@ -1,12 +1,10 @@
 com/example/restservice/ResponseTransfer.java
  com.example.restservice.ResponseTransfer
-com/example/restservice/Person.java
- com.example.restservice.Person
 com/example/restservice/RestServiceApplication.java
  com.example.restservice.RestServiceApplication
 com/example/restservice/ValueController.java
  com.example.restservice.ValueController
-com/example/restservice/LoginForm.java
- com.example.restservice.LoginForm
 com/example/restservice/SchemaController.java
  com.example.restservice.SchemaController
+com/example/restservice/LoginForm.java
+ com.example.restservice.LoginForm

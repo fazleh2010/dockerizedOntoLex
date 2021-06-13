@@ -4,111 +4,30 @@ info:
   description: the teanga dummy API example which generates random outputs
   version: 1.0.0-oas3
 paths:
-  '/value/{value_type}':
-    get:
-      operationId: randomvalue
-      summary: Returns a single random  value of given value type.
-      parameters:
-        - in: path
-          name: value_type
-          schema:
-            type: string
-          required: true
+  '/response':
+    post:
+      description: Given corpus and knowledge graph provide ontology lexicalization in lemon format 
+      operationId: ontolex
+      requestBody:
+        description: corpus and knowledge graph
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginForm'
       responses:
         '200':
-          description: A single value
+          description: return ontology lexicalization in lemon format
           content:
             application/json:
               schema:
-                type: string
-  '/value/arrayof/{number_of_instances}/{value_type}':
-    get:
-      operationId: randomarrayvalues
-      summary: Returns an array of random values of given value type.
-      parameters:
-        - in: path
-          name: value_type
-          schema:
-            type: string
-          required: true
-        - in: path
-          name: number_of_instances
-          schema:
-            type: integer
-          required: true
-      responses:
-        '200':
-          description: An array of  values
+                $ref: '#/components/schemas/ResponseTransfer'
+        default:
+          description: unexpected error
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: string
+                $ref: '#/components/schemas/Error'
 
-  '/schema/{schema_name}':
-    get:
-      operationId: randomschema
-      summary: Returns a single random  schema of given a schema name.
-      parameters:
-        - in: path
-          name: schema_name
-          schema:
-            type: string
-          required: true
-      responses:
-        '200':
-          description: A single schema instance
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - $ref: '#/components/schemas/Person'
-                  - $ref: '#/components/schemas/Animal'
-  '/schema/{number_of_instances}/{schema_name}':
-    get:
-      operationId: randomschemas
-      summary: Returns a single random  schema of given a schema name.
-      parameters:
-        - in: path
-          name: schema_name
-          schema:
-            type: string
-          required: true
-        - in: path
-          name: number_of_instances
-          schema:
-            type: integer
-          required: true
-      responses:
-        '200':
-          description: A single schema instance
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  oneOf:
-                    - $ref: '#/components/schemas/Person'
-components:
-  schemas:
-    Person:
-      type: object
-      required:
-        - name
-        - age
-      properties:
-        name:
-          type: string
-        age:
-          type: integer
-    Animal:
-      type: object
-      required:
-        - name
-        - favorite_food
-      properties:
-        name:
-          type: string
-        favorite_food:
-          type: string
+
+    
