@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
         method = {RequestMethod.GET, RequestMethod.POST})
 public class SchemaController {
     
-    @RequestMapping(path = "/content", method = RequestMethod.POST)
+    @RequestMapping(path = "/schema", method = RequestMethod.POST)
     @ResponseBody
     public ResponseTransfer postResponseController(@RequestBody LoginForm loginForm) {
         return new ResponseTransfer(loginForm.toString());
