@@ -25,8 +25,8 @@ public class SchemaController {
     
     @RequestMapping(path = "/response", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseTransfer postResponseController(@RequestBody LoginForm loginForm) {
-        return new ResponseTransfer(loginForm.toString());
+    public ResponseTransfer postResponseController(@RequestBody Configuration conf) {
+        return new ResponseTransfer(conf);
      }
     
     /*@PostMapping("/response")

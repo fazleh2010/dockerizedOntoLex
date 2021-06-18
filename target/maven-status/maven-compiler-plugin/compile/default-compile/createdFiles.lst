@@ -1,5 +1,5 @@
 com/example/restservice/ResponseTransfer.class
 com/example/restservice/RestServiceApplication.class
-com/example/restservice/LoginForm.class
 com/example/restservice/SchemaController.class
 com/example/restservice/Constants.class
+com/example/restservice/Configuration.class

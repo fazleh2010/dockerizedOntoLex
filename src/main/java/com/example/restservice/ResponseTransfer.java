@@ -5,20 +5,28 @@
  */
 package com.example.restservice;
 
+import java.util.*;  
+
 /**
  *
  * @author elahi
  */
 public class ResponseTransfer {
-        private String text; 
-        
-        public ResponseTransfer(String textT){
-            this.text=textT;
-        }
+    
+    private Map<String,String> lexicalEntries=new TreeMap<String,String>();
+    
+    
+    public ResponseTransfer(Configuration config) {
+        this.lexicalEntries.put(Constants.dummylexicalEntry,Constants.dummyLemon);
+        this.lexicalEntries.put(Constants.dummylexicalEntry2,Constants.dummyLemon2);
+        this.lexicalEntries.put(Constants.dummylexicalEntry3,Constants.dummyLemon3);
 
-    public String getText() {
-        return text;
+    }
+
+    public Map<String,String> getLexicalEntries() {
+        return this.lexicalEntries;
     }
 
     
+
 }

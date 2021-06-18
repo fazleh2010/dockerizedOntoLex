@@ -14,7 +14,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LoginForm'
+              $ref: '#/components/schemas/Configuration'
       responses:
         '200':
           description: return ontology lexicalization in lemon format
