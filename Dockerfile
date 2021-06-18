@@ -1,4 +1,16 @@
-FROM gradle:7.0.0-jdk8
+FROM maven:3.8-jdk-11 AS buildweb
+
+ADD pom.xml /source/pom.xml
+RUN cd /source && mvn verify clean --fail-never
+
+ADD pom.xml /source/pom.xml
+RUN cd /source && mvn verify clean --fail-never
+
+ADD ./src /source/src
+RUN cd /source && mvn -B package -DskipTests
+
+FROM maven:3.8-jdk-11 AS buildconv
+
 EXPOSE 8080
 USER root
 
@@ -6,5 +18,5 @@ WORKDIR /app
 COPY ./ /app
 RUN chmod +x /app
 COPY ./openapi.yaml /openapi.yaml
-RUN gradle build
-CMD ["java","-jar","build/libs/rest-service-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-jar","target/rest-service-0.0.1-SNAPSHOT.jar"]
+
