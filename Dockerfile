@@ -3,13 +3,16 @@ FROM maven:3.8-jdk-11 AS buildweb
 ADD pom.xml /source/pom.xml
 RUN cd /source && mvn verify clean --fail-never
 
-ADD pom.xml /source/pom.xml
-RUN cd /source && mvn verify clean --fail-never
-
 ADD ./src /source/src
 RUN cd /source && mvn -B package -DskipTests
 
 FROM maven:3.8-jdk-11 AS buildconv
+
+# Install runtime packages
+RUN apt-get update \
+    && apt-get install -y \
+      perl
+
 
 EXPOSE 8080
 USER root

@@ -17,9 +17,13 @@ public class ResponseTransfer {
     
     
     public ResponseTransfer(Configuration config) {
-        this.lexicalEntries.put(Constants.dummylexicalEntry,Constants.dummyLemon);
-        this.lexicalEntries.put(Constants.dummylexicalEntry2,Constants.dummyLemon2);
-        this.lexicalEntries.put(Constants.dummylexicalEntry3,Constants.dummyLemon3);
+        //this.lexicalEntries.put(Constants.dummylexicalEntry,Constants.dummyLemon);
+        //this.lexicalEntries.put(Constants.dummylexicalEntry2,Constants.dummyLemon2);
+        //this.lexicalEntries.put(Constants.dummylexicalEntry3,Constants.dummyLemon3);
+        PerlQuery PerlQuery=new PerlQuery();
+        String testString=PerlQuery.Test();
+        this.lexicalEntries.put(testString,testString);
+
 
     }
 
