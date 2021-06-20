@@ -27,6 +27,14 @@ RUN { echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sel
 
 RUN export PERL5LIB=.:$PERL5LIB && \
     cpanm \
+    DateTime::Format::Oracle \
+    DateTime::Format::MySQL \
+    DateTime::Format::Pg
+
+
+
+RUN export PERL5LIB=.:$PERL5LIB && \
+    cpanm \
     Archive::Zip \
     BSD::Resource \
     YAML::Syck \
@@ -34,8 +42,6 @@ RUN export PERL5LIB=.:$PERL5LIB && \
     Text::CSV \
     Number::Bytes::Human \
     IO::Uncompress::Bunzip2
-
-FROM openjdk:11.0.7
 
 
 EXPOSE 8080
