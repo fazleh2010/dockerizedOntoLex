@@ -28,7 +28,7 @@ public class PerlQuery {
     }
 
     public static String Test() {
-        String[] aCmdArgs = {"perl", location + "HelloWorld.pl"};
+        String[] aCmdArgs = {"perl", location + "experiment.pl"};
         Runtime oRuntime = Runtime.getRuntime();
         Process oProcess = null;
 
